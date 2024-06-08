@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seoul Sweets Menu</title>
+    <link rel="stylesheet" href="about.css">
+    <style>
+        body {
+            background-color: #ffdde7; /* Background color */
+            margin-top: 100px;
+            font-family: 'Poppins';
+        }
+
+        nav.navbar {
+            background-color: #99C1D6; /* Navbar background color */
+            position: fixed;
+            font-family: monospace; /* Monospace font */
+            font-size: x-large;
+            padding: 10px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav.navbar a {
+            text-decoration: none;
+            margin-right: 15px;
+            color: #FFFF; /* Font color for nav links */
+        }
+
+        nav.navbar a:last-child {
+            margin-right: 0;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: auto;
+            text-align: center; /* Center images within the carousel */
+            display: flex;
+            justify-content: center; /* Center the carousel */
+            align-items: center; /* Vertically center the carousel */
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            transition: transform 0.5s ease;
+            justify-content: center; /* Center the images within the carousel */
+        }
+
+        .carousel img {
+            width: 100%;
+            max-width: 600px; /* Adjust the width as needed for larger size */
+            height: auto;
+            border: 5px solid #e69999; /* Thicker border around images */
+            border-radius: 10px; /* Rounded corners for the border */
+        }
+
+        .carousel-btn {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 20px; /* Increased padding for bigger arrows */
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 24px; /* Increased font size for bigger arrows */
+            top: 50%; /* Adjust vertical position */
+            transform: translateY(-50%);
+            color: #ff7979; /* Arrow color */
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+        .title img {
+            max-width: 30%; /* Ensure the image is responsive */
+            height: auto; /* Maintain aspect ratio */
+            display: block;
+            margin: 0 auto; /* Center the image */
+        }
+
+        .title {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .carousel img {
+                max-width: 80%; /* Adjust width for smaller screens */
+                border-width: 4px; /* Adjust border width for smaller screens */
+            }
+
+            .carousel-btn {
+                font-size: 20px;
+                padding: 15px;
+            }
+
+            nav.navbar {
+                font-size: large;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel img {
+                max-width: 60%; /* Adjust width for smallest screens */
+                border-width: 3px; /* Adjust border width for smaller screens */
+            }
+
+            .title img {
+                max-width: 70%; /* Increase size of title image for smallest screens */
+            }
+
+            .carousel-btn {
+                font-size: 18px;
+                padding: 10px;
+            }
+
+            nav.navbar {
+                font-size: medium;
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html">Menu</a>
+        <a href="taketest.html">Take the Test</a>
+        <!-- <a href="about.html">Feedback</a> -->
+    </nav>
+
+    <div class="title">
+        <img src="menutitle.png" alt="Menu Title">
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <img src="1.png" alt="Image 1">
+            <img src="2.png" alt="Image 2">
+            <img src="3.png" alt="Image 3">
+            <img src="4.png" alt="Image 4">
+            <img src="5.png" alt="Image 5">
+            <img src="6.png" alt="Image 6">
+            <img src="7.png" alt="Image 7">
+            <img src="8.png" alt="Image 8">
+            <img src="9.png" alt="Image 9">
+            <img src="10.png" alt="Image 10">
+            <img src="11.png" alt="Image 11">
+            <img src="12.png" alt="Image 12">
+            <img src="13.png" alt="Image 13">
+            <img src="14.png" alt="Image 14">
+            <img src="15.png" alt="Image 15">
+            <img src="16.png" alt="Image 16">
+        </div>
+        <div class="carousel-btn prev-btn" onclick="prevImage()">&#10094;</div>
+        <div class="carousel-btn next-btn" onclick="nextImage()">&#10095;</div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const images = document.querySelectorAll('.carousel img');
+            if (index < 0) {
+                index = images.length - 1;
+            } else if (index >= images.length) {
+                index = 0;
+            }
+            images.forEach(img => img.style.display = 'none');
+            images[index].style.display = 'inline-block';
+            currentIndex = index;
+        }
+
+        function prevImage() {
+            showImage(currentIndex - 1);
+        }
+
+        function nextImage() {
+            showImage(currentIndex + 1);
+        }
+
+        showImage(currentIndex);
+    </script>
+
+</body>
+</html>

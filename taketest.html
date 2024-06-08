@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Take the Test</title>
+
+    <link rel="stylesheet" href="about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+       
+        
+        body {
+            -webkit-text-size-adjust: none;
+            background-color: #ffdde7; /* Background color */
+            margin-top: 100px;
+            font-family: 'Poppins';
+        }
+        
+        nav.navbar {
+            background-color: #99C1D6; /* Navbar background color */
+            position: fixed;
+            font-family: monospace; /* Monospace font */
+            font-size: x-large;
+            padding: 10px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        nav.navbar a {
+            text-decoration: none;
+            margin-right: 15px;
+            color: #FFFF ; /* Font color for nav links */
+        }
+   
+        nav.navbar a:last-child {
+            margin-right: 0;
+        }
+        
+
+        .quiz-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #FFF0F4;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        .quiz-container:first-child {
+            display: block;
+        }
+        .question {
+            font-size: 18pt;
+            margin-bottom: 30px;
+            margin-left: 20px;
+            color: #23517B;
+        }
+      
+        .answer {
+            margin-bottom: 30px;
+            font-family: monospace;
+            font-size: 15pt;
+            margin-left: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #e69999;
+            color: #fff;
+            font-family: monospace;
+            font-size: 15pt;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #e69999;
+        }
+
+        .result-container {
+            max-width: 500px;
+            font-family: monospace;
+            color: #ffff;
+            font-size: x-large;
+            margin: 20px auto;
+            padding: 80px;
+            background-color: #D0B3E1;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            text-align: center;
+        }
+        .result-image {
+            max-width: 100%;
+            height: auto;
+        }
+        .result-title {
+            margin-top: 0px; /* Adjust the margin-top value as needed to lower the title */
+        }
+        .image-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+        .quiz-image {
+            max-width: 100%;
+            height: auto;
+            display: flex;
+            width: 400px; 
+            margin-bottom: 30px;
+            margin-top: 30px;
+            border-radius: 35px;
+           
+
+        }
+    </style>
+</head>
+<body>
+    
+
+
+    <body>
+        
+        <div class="quiz-container" id="question1">
+            <div class="image-wrapper">
+            <img src="house.png" alt="Question 1 Image" class="quiz-image">
+            </div>
+            <div class="question">
+                You have appeared at the House of Sweets! A host appears at the doorway. She kindly tells you to step inside, and that you will discover your “spirit sweet”. Do you think…
+            </div>
+            <div class="answers">
+                <div class="answer">
+                    <input type="radio" name="question1" id="q1a1" value="N">
+                    <label for="q1a1">"Wow, she’s so welcoming! I can’t wait to find out! I wonder what I will have to do?"</label>
+                </div>
+                <div class="answer">
+                    <input type="radio" name="question1" id="q1a2" value="S">
+                    <label for="q1a2">"Huh? That doesn’t seem to make sense but … sure?"</label>
+                </div>
+            </div>
+            <button class="btn" onclick="nextQuestion(1)">Next</button>
+        </div>
+
+        <div class="quiz-container" id="question2">
+            <div class="image-wrapper">
+                <img src="vendor.png" alt="Question 2 Image" class="quiz-image">
+            </div>
+            <div class="question">
+                You step into the giant venue anyway and see many people gathered around different food vendors awaiting for food. Do you …
+            </div>
+            <div class="answers">
+                <div class="answer">
+                    <input type="radio" name="question2" id="q2a1" value="E">
+                    <label for="q2a1">Join the crowd, get to know people, and try to make some friends.</label>
+                </div>
+                <div class="answer">
+                    <input type="radio" name="question2" id="q2a2" value="I">
+                    <label for="q2a2">Step around crowds and quietly observe the delicious and fun vendors, thinking about what to get.</label>
+                </div>
+            </div>
+            <button class="btn" onclick="nextQuestion(2)">Next</button>
+        </div>
+    
+        <div class="quiz-container" id="question3">
+            <div class="image-wrapper">
+                <img src="game.png" alt="Question 3 Image" class="quiz-image">
+            </div>
+            <div class="question">
+                Suddenly, you get swooped into a group game. You are split into teams and make a plan to find the hidden sweet of a treasure hunt. After a minute, you have a game plan! But what is more important…
+            </div>
+            <div class="answers">
+                <div class="answer">
+                    <input type="radio" name="question3" id="q3a1" value="T">
+                    <label for="q3a1">Ensuring the team wins and setting up roles and action plans directly.</label>
+                </div>
+                <div class="answer">
+                    <input type="radio" name="question3" id="q3a2" value="F">
+                    <label for="q3a2">The team gets along and doesn’t get intimidated, making sure they have a good time even if you don’t win.</label>
+                </div>
+            </div>
+            <button class="btn" onclick="nextQuestion(3)">Next</button>
+        </div>
+    
+        <div class="quiz-container" id="question4">
+            <div class="image-wrapper">
+                <img src="candy.png" alt="Question 4 Image" class="quiz-image">
+            </div>
+            <div class="question">
+                You guys won! Looks like it was a pot of ultra-rare candy, yum! Next on the itinerary was a pastry-making class in 30 minutes you just signed up for. However, after five minutes, you began getting distracted by the food vendors. Do you …
+            </div>
+            <div class="answers">
+                <div class="answer">
+                    <input type="radio" name="question4" id="q4a1" value="P">
+                    <label for="q4a1">Just tell the teacher you can’t make it. You know it’ll make you seem like a hassle because you left your spot, but you want food!</label>
+                </div>
+                <div class="answer">
+                    <input type="radio" name="question4" id="q4a2" value="J">
+                    <label for="q4a2">You really want to … but can’t. You stick to your itinerary to be on track with the schedule.</label>
+                </div>
+            </div>
+            <button class="btn" onclick="nextQuestion(4)">Next</button>
+        </div>
+    
+
+
+
+
+        <div class="quiz-container" id="question5">
+            <div class="image-wrapper">
+                <img src="group.png" alt="Question 5 Image" class="quiz-image">
+            </div>
+            <div class="question">
+                Tap tap! Someone taps your shoulder and compliments your outfit. They then ask if you want to go explore the place more, along with their big group of friends. Do you say …
+            </div>
+            <div class="answers">
+                <div class="answer">
+                    <input type="radio" name="question5" id="q5a1" value="E">
+                    <label for="q5a1">“Sure! I would love to!” You love meeting new people and starting conversations. They seem interesting and chill.</label>
+                </div>
+                <div class="answer">
+                    <input type="radio" name="question5" id="q5a2" value="I">
+                    <label for="q5a2">“Uhm, actually I’m kind of busy, someone’s waiting for me.” You needed to give a lie because you were too shy and didn’t want to join a totally new group of people. That’s a little uncomfortable for you.</label>
+                </div>
+            </div>
+            <button class="btn" onclick="nextQuestion(5)">Next</button>
+        </div>
+    
+        <div class="quiz-container" id="question6">
+            <div class="image-wrapper">
+                <img src="st.png" alt="Question 6 Image" class="quiz-image">
+            </div>
+            <div class="question">
+                You then discover the ultra-rare sweet you won disappeared! It was just in your back pocket. You start to think if someone might have stolen it. Do you think…
+            </div>
+            <div class="answers">
+                <div class="answer">
+                    <input type="radio" name="question6" id="q6a1" value="S">
+                    <label for="q6a1">There’s no way anyone stole it, and there is no proof. You must have dropped it, or if someone did steal it, you can’t do much.</label>
+                </div>
+                <div class="answer">
+                    <input type="radio" name="question6" id="q6a2" value="N">
+                    <label for="q6a2">Someone definitely did it. If it was in the back pocket, it’s impossible for you to drop it! You have a feeling someone saw you win and took it …</label>
+                </div>
+            </div>
+            <button class="btn" onclick="nextQuestion(6)">Next</button>
+        </div>
+    
+        <div class="quiz-container" id="question7">
+            <div class="image-wrapper">
+                <img src="cake.png" alt="Question 7 Image" class="quiz-image">
+            </div>
+            <div class="question">
+                After a few hours of fun, you find out it’s the host's birthday! You want to help plan for it. Do you think …
+            </div>
+            <div class="answers">
+                <div class="answer">
+                    <input type="radio" name="question7" id="q7a1" value="T">
+                    <label for="q7a1">You need to create a super cool and fun itinerary ASAP! You want her to be amazed by decorations too, and make it look grand.</label>
+                </div>
+                <div class="answer">
+                    <input type="radio" name="question7" id="q7a2" value="F">
+                    <label for="q7a2">It’s important to make the party seem cool and all, but it’s more important if everyone had fun with a warm ambience, rather than extravagance.</label>
+                </div>
+            </div>
+            <button class="btn" onclick="nextQuestion(7)">Next</button>
+        </div>
+    
+        <div class="quiz-container" id="question8">
+            <div class="image-wrapper">
+                <img src="todo.png" alt="Question 8 Image" class="quiz-image">
+            </div>
+            <div class="question">
+                As you are planning, do you make the events…
+            </div>
+            <div class="answers">
+                <div class="answer">
+                    <input type="radio" name="question8" id="q8a1" value="J"> 
+                    <label for= 'q8a1'> All back to back. You assume you can conduct the party on time after every event, so there’s no need to make space after every one and lose time.</label>
+                </div>
+                <div class="answer">
+                    <input type="radio" name="question8" id="q8a2" value="P">
+                    <label for="q8a2">Schedule the events vaguely in a range of time, it should be flexible and a surprise.</label>
+                </div>
+            </div>
+            <button class="btn" onclick="nextQuestion(8)">Next</button>
+        </div>
+    
+
+
+
+
+        <div class="quiz-container" id="question9">
+            <div class="image-wrapper">
+                <img src="tables.png" alt="Question 9 Image" class="quiz-image">
+            </div>
+            <div class="question">
+                At her birthday planning session, you are in charge of splitting guests at tables where you will also be sitting. Do you...
+            </div>
+            <div class="answers">
+                <div class="answer">
+                    <input type="radio" name="question9" id="q9a1" value="I">
+                    <label for="q9a1">Split people into small groups of 3-5.
+                    </label>
+                </div>
+                <div class="answer">
+                    <input type="radio" name="question9" id="q9a2" value="E">
+                    <label for="q9a2">Split people into larger groups of 7-10.
+                    </label>
+                </div>
+            </div>
+            <button class="btn" onclick="nextQuestion(9)">Next</button>
+        </div>
+    
+        <div class="quiz-container" id="question10">
+            <div class="image-wrapper">
+                <img src="sparkler.png" alt="Question 10 Image" class="quiz-image">
+            </div>
+            <div class="question">
+                You then see these newly released sparkler birthday candles at a store and think they would be nice for the cake. However you know that the sparkler might be dangerous, yet it could be okay as long as the instructions are followed and you’re careful. Do you …
+            </div>
+            <div class="answers">
+                <div class="answer">
+                    <input type="radio" name="question10" id="q10a1" value="N">
+                    <label for="q10a1">Get the candles, it'll be cool!
+                    </label>
+                </div>
+                <div class="answer">
+                    <input type="radio" name="question10" id="q10a2" value="S">
+                    <label for="q10a2">Don’t get it, and get normal ones. Unless I've seen them work, it might ruin the party.
+                    </label>
+                </div>
+            </div>
+            <button class="btn" onclick="nextQuestion(10)">Next</button>
+        </div>
+    
+        <div class="quiz-container" id="question11">
+            <div class="image-wrapper">
+                <img src="drinks.png" alt="Question 11 Image" class="quiz-image">
+            </div>
+            <div class="question">
+                The party begins! There are some sparkly alcoholic drinks out. But when you drink a lot you know too many drinks can make you louder than normal. Do you …
+            </div>
+            <div class="answers">
+                <div class="answer">
+                    <input type="radio" name="question11" id="q11a1" value="F">
+                    <label for="q11a1">Drink anyway! You’ll be able to handle it, as long as you don't go overboard.</label>
+                </div>
+                <div class="answer">
+                    <input type="radio" name="question11" id="q11a2" value="T">
+                    <label for="q11a2">Maybe not drink it. You know that having one too many drinks would make you a spectacle.</label>
+                </div>
+            </div>
+            <button class="btn" onclick="nextQuestion(11)">Next</button>
+        </div>
+    
+        <div class="quiz-container" id="question12">
+            <div class="image-wrapper">
+                <img src="sunset.png" alt="Question 12 Image" class="quiz-image">
+            </div>
+            <div class="question">
+                The party is ending and you see the sunset and realize you have things to do when the weekend comes along. Do you …
+            </div>
+            <div class="answers">
+                <div class="answer">
+                    <input type="radio" name="question12" id="q12a1" value="J">
+                    <label for="q12a1">Plan your weekend accordingly on your way back. You call friends to set up hangouts, and doctor appointments as well.</label>
+                </div>
+                <div class="answer">
+                    <input type="radio" name="question12" id="q12a2" value="P">
+                    <label for="q12a2">You let it go and assume you can make plans the day of or before. Go with the flow!</label>
+                </div>
+            </div>
+            <button class="btn" onclick="nextQuestion(12)">Press Here To Find Out!</button>
+        </div>
+
+    
+
+
+
+    <nav class="navbar">
+        <a href="index.html">Menu</a>
+        <a href="taketest.html">Take the Test</a>
+        <!-- <a href="about.html">Feedback</a> -->
+    </nav>
+
+
+    <div class="result-container" id="result-container">
+        <h2>Your Dessert Type is ...</h2>
+        <img src="KSITE/allfiles/image.jpg" id="result-image" class="result-image" alt="Result Image">
+        <h2>Press Down Image to Save on Phone or Right-Click Save on Web!</h2>
+        <p id="result-text"></p>
+    </div>
+
+
+
+
+
+
+    <script>
+
+        const mbtiCounter = {
+                E: 0,
+                I: 0,
+                S: 0,
+                N: 0,
+                T: 0,
+                F: 0,
+                J: 0,
+                P: 0
+            };
+
+        // Mapping of question numbers to MBTI dimensions
+        const questionToDimension = {
+            1: 'EI',
+            2: 'EI',
+            3: 'TF',
+            4: 'JP',
+            5: 'EI',
+            6: 'SN',
+            7: 'JP',
+            8: 'SN',
+            9: 'TF',
+            10: 'SN',
+            11: 'EI',
+            12: 'JP'
+        };
+
+        const mbtiToNum = {
+            'ENTJ': 1,
+            'ISTP': 2,
+            'ISFJ': 3,
+            'INTJ': 4,
+            'ESFP': 5,
+            'ESFJ': 6,
+            'ISTJ': 7,
+            'INFJ': 8,
+            'ESTP': 9,
+            'ESTJ': 10,
+            'INFP': 11,
+            'ISFP': 12,
+            'ENFJ': 13,
+            'ENFP': 14,
+            'INTP': 15,
+            'ENTP': 16
+        };
+
+
+        const mbtiToDessert = {
+            'ENTJ': 'Fruit Bingsoo',
+            'ISTP': 'Bungeobbang',
+            'ISFJ': 'Hotteok',
+            'INTJ': 'Yakgwa',
+            'ESFP': 'Melona',
+            'ESFJ': 'Sujeonggwa',
+            'ISTJ': 'Songpyeon',
+            'INFJ': 'Mattang',
+            'ESTP': 'Rollcake',
+            'ESTJ': 'Soobak Bar',
+            'INFP': 'Banana Milk',
+            'ISFP': 'Cream Cake',
+            'ENFJ': 'Manju',
+            'ENFP': 'Dalgona Coffee',
+            'INTP': 'Croffle',
+            'ENTP': 'Jeju Hallabong'
+        }
+        
+        function nextQuestion(currentQuestion) {
+            const currentQuizContainer = document.getElementById(`question${currentQuestion}`);
+            const nextQuizContainer = document.getElementById(`question${currentQuestion + 1}`);
+            
+            const selectedAnswer = currentQuizContainer.querySelector('input[type="radio"]:checked');
+            
+            if (selectedAnswer) {
+                // Increment the corresponding counter based on the selected answer
+                mbtiCounter[selectedAnswer.value]++;
+                
+                currentQuizContainer.style.display = 'none';
+                if (nextQuizContainer) {
+                    nextQuizContainer.style.display = 'block';
+                } else {
+                    // Calculate and display the MBTI result
+                    displayResult();
+                }
+            } else {
+                alert('Please select an answer before proceeding.');
+            }
+        }
+
+        function displayResult() {
+            // Determine the MBTI type based on the counters
+            const mbtiType = 
+                (mbtiCounter.E >= mbtiCounter.I ? 'E' : 'I') +
+                (mbtiCounter.S >= mbtiCounter.N ? 'S' : 'N') +
+                (mbtiCounter.T >= mbtiCounter.F ? 'T' : 'F') +
+                (mbtiCounter.J >= mbtiCounter.P ? 'J' : 'P');
+            
+            // Update the result container with the result image and text
+            const resultContainer = document.getElementById('result-container');
+            const resultImage = document.getElementById('result-image');
+            const resultText = document.getElementById('result-text');
+
+            resultImage.src = `${mbtiToNum[mbtiType]}.png`; 
+            
+            
+
+            resultContainer.style.display = 'block';
+        }
+
+    </script>
+</body>
+</html>
